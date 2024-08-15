@@ -1,10 +1,28 @@
-<p>book-list works!</p>
+<ag-grid-angular style="width: 100%; height: 200px" [rowSelection]="'single'" [rowData]="rowData" [columnDefs]="colDefs"
+    (rowSelected)="onRowSelected($event)" (selectionChanged)="onSelectionChanged($event)" [class]="'ag-theme-quartz'" />
 
-<ag-grid-angular style="width: 100%; height: 300px" [rowSelection]="'single'" [rowData]="rowData" [columnDefs]="colDefs"
-    (rowSelected)="onRowSelected($event)" (selectionChanged)="onSelectionChanged($event)" [class]="themeClass" />
-
-
-<button (click)="toggleCover()">Cover {{coverIsVisible ? 'aus': 'ein' }}blenden</button>
+@if (bestellungenDesAktuellenBuches && bestellungenDesAktuellenBuches.length > 0) {
+<p>Bestellungen:</p>
+<table border="1">
+    <tr>
+        <td>Anzahl</td>
+        <td>Besteller</td>
+    </tr>
+    @for (bestellung of bestellungenDesAktuellenBuches; track bestellung; let i = $index) {
+    <tr>
+        <td>{{bestellung.anzahl}}</td>
+        <td>{{bestellung.besteller}}</td>
+    </tr>
+    }
+</table>
+}
+@else {
+<p>Bitte wählen Sie ein Buch aus.</p>
+}
+<hr />
+<p>
+    <button (click)="toggleCover()">Cover {{coverIsVisible ? 'aus': 'ein' }}blenden</button>
+</p>
 
 <p>
     Filter: <input type="text" [(ngModel)]="filterValue" />
