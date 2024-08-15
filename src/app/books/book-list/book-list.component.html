@@ -1,0 +1,55 @@
+<p>book-list works!</p>
+
+<button (click)="toggleCover()">Cover {{coverIsVisible ? 'aus': 'ein' }}blenden</button>
+
+<p>
+    Filter: <input type="text" [(ngModel)]="filterValue" />
+</p>
+
+<p>
+    Liste von {{books.length}} Bücher -
+    gefiltert nach "{{filterValue}}":
+</p>
+
+@if (books.length > 0) {
+<table border="1">
+    <tr>
+        <td>ISBN</td>
+        <td>Titel</td>
+        <td>Rating</td>
+        <td>Preis</td>
+        <td *ngIf="coverIsVisible">Cover</td>
+    </tr>
+    @for (book of books | bookFilter : filterValue; track book.isbn; let i = $index) {
+    <tr>
+        <td>{{book.isbn}}</td>
+        <td>
+            <a [routerLink]="['/book', book.isbn]">
+                {{book.title}}
+            </a>
+        </td>
+        <td>
+            <rating [stars]="book.rating" [id]="book.isbn" (plusWasClicked)="plus($event)"
+                (minusWasClicked)="minus($event)">
+            </rating>
+        </td>
+        <td><span [ngClass]="{'on-discount': book.price < 10}">
+                {{book.price | currency:'EUR':'symbol':'1.2-2'}}
+            </span>
+        </td>
+        <td *ngIf="coverIsVisible"><img [src]="book.coverUrl" [style.width.px]="50"></td>
+    </tr>
+    }
+
+    <!-- <tr *ngFor="let book of books; index as i; trackBy: trackbook">
+        <td>{{i+1}}: {{book['isbn']}}</td>
+        <td>{{book['title']}}</td>
+        <td>{{book['rating']}}</td>
+        <td>{{book['price']}}</td>
+        <td></td>
+    </tr> -->
+
+</table>
+} @else {
+<p>Keine Bücher vorhanden.</p>
+}
