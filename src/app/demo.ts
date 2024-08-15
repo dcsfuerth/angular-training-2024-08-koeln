@@ -22,16 +22,10 @@ export function getOrdner(ordner: OrdnerA | OrdnerB): string {
   return 'what?';
 }
 
-// export function getOrdner2(ordner: Partial<OrdnerA>): void {
-//   console.log(ordner.type);
-// }
-
 export function test() {
   const ordnerA = new OrdnerA();
   console.log(getOrdner(ordnerA)); // A
 
   const ordnerB = new OrdnerB();
   console.log(getOrdner(ordnerB)); // B
-
-  // getOrdner2({ type: 'A' });
 }

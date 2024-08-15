@@ -1,6 +1,9 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AgGridAngular, AgGridModule } from 'ag-grid-angular'; // Angular Data Grid Component
+import { ColDef } from 'ag-grid-community'; // Column Definition Type Interface
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './books/book-list/book-list.component';
@@ -30,6 +33,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    AgGridModule,
     StoreModule.forRoot({ count: counterReducer }),
     StoreDevtoolsModule.instrument({ maxAge: 250, logOnly: !isDevMode() }),
   ],

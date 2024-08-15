@@ -25,9 +25,7 @@ export class RatingComponent implements OnChanges {
   @Output()
   minusWasClicked: EventEmitter<string> = new EventEmitter<string>();
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('RatingComponent.ngOnChanges', changes);
-  }
+  ngOnChanges(changes: SimpleChanges): void {}
 
   plus() {
     this.plusWasClicked.emit(this.id);
