@@ -1,9 +1,9 @@
-<p>book-list works!</p>
+<p>Die Bücherliste</p>
 
 <button (click)="toggleCover()">Cover {{coverIsVisible ? 'aus': 'ein' }}blenden</button>
 
 <p>
-    Filter: <input type="text" [(ngModel)]="filterValue" />
+    Filter: <input type="text" [(ngModel)]="filterValue" data-cy="book-filter-input" />
 </p>
 
 <p>
@@ -21,7 +21,7 @@
         <td *ngIf="coverIsVisible">Cover</td>
     </tr>
     @for (book of books | bookFilter : filterValue; track book.isbn; let i = $index) {
-    <tr>
+    <tr data-cy="book-list-row">
         <td>{{book.isbn}}</td>
         <td>
             <a [routerLink]="['/book', book.isbn]">

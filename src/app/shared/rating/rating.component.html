@@ -1,3 +1,3 @@
-{{stars}}
-<button (click)="plus()">+</button>
-<button (click)="minus()">-</button>
+<span attr.data-cy="stars-{{id}}">{{stars}}</span>
+<button (click)="plus()" attr.data-cy="plus-{{id}}">+</button>
+<button (click)="minus()" attr.data-cy="minus-{{id}}">-</button>
