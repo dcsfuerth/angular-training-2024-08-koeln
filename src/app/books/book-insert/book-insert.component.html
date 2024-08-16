@@ -1,0 +1,42 @@
+<p>book-insert works!</p>
+
+<form [formGroup]="bookForm" (ngSubmit)="speichern()">
+    <div class="form-group">
+        <label for="title">Titel: (*)</label>
+        <input type="text" class="form-control" id="title" formControlName="title">
+        <span class='fehler' *ngIf="bookForm.get('title')?.errors as fehler">
+            {{fehler['required'] ? "Bitte Pflichtfeld ausfüllen" : ''}}
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="title">ISBN: (*)</label>
+        <input type="text" class="form-control" id="title" formControlName="isbn">
+        <span class='fehler' *ngIf="bookForm.get('isbn')?.errors as fehler">
+            {{fehler | json}}
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="title">Preis:</label>
+        <input type="number" class="form-control" id="title" formControlName="price">
+    </div>
+    <div class="form-group">
+        <label for="title">Cover-URL:</label>
+        <input type="text" class="form-control" id="title" formControlName="coverUrl">
+    </div>
+
+    <button type="submit" [disabled]="!bookForm.valid">Speichern</button>
+</form>
+
+<p>
+    Werte:
+    {{bookForm.value| json}}
+</p>
+
+<p>
+    Fehler:
+    {{bookForm.errors| json}}
+</p>
+
+<p>
+    bookForm.valid: {{bookForm.valid}}
+</p>

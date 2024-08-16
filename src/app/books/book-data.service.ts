@@ -31,4 +31,11 @@ export class BookDataService {
   getBook(isbn: string): Observable<Book> {
     return this.http.get<Book>(`${environment.BASE_URL}/books/${isbn}`);
   }
+
+  saveBook(book: Book): Observable<Book> {
+    return this.http.post<Book>(`${environment.BASE_URL}/books`, book);
+  }
+  saveBookAsPromise(book: Book): Promise<Book> {
+    return firstValueFrom(this.saveBook(book));
+  }
 }
