@@ -1,29 +1,26 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BookListComponent } from './books/book-list/book-list.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CalculatorComponent } from './shared/calculator/calculator.component';
-import { BookFilterPipe } from './books/book-filter.pipe';
-import { RatingComponent } from './shared/rating/rating.component';
-import { HttpClientModule } from '@angular/common/http';
-import { WelcomeComponent } from './books/welcome/welcome.component';
 import { BookDetailComponent } from './books/book-detail/book-detail.component';
-import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './counter/counter.actions';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EffectsModule } from '@ngrx/effects';
+import { BookFilterPipe } from './books/book-filter.pipe';
 import { BookInsertComponent } from './books/book-insert/book-insert.component';
+import { BookListComponent } from './books/book-list/book-list.component';
+import { WelcomeComponent } from './books/welcome/welcome.component';
+import { counterReducer } from './counter/counter.actions';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookListComponent,
-    CalculatorComponent,
     BookFilterPipe,
-    RatingComponent,
     WelcomeComponent,
     BookDetailComponent,
     BookInsertComponent,
@@ -37,6 +34,7 @@ import { BookInsertComponent } from './books/book-insert/book-insert.component';
     StoreDevtoolsModule.instrument({ maxAge: 250, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),
     ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -31,6 +31,12 @@
       "title": "Java",
       "price": 99,
       "coverUrl": ""
+    },
+    {
+      "isbn": "8989898989898",
+      "title": "Docker",
+      "price": 23,
+      "coverUrl": ""
     }
   ]
 }
