@@ -1,3 +1,8 @@
+Kurz-URL des Repo
 https://shorturl.at/zQbI6
 
+Lang-URL des Repo
 https://github.com/dcsfuerth/angular-training-2024-08-koeln
+
+folien.zip hat ein Kennwort ;-)
+
