@@ -7,7 +7,7 @@ import { test } from './demo';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'books :-)';
+  title = 'books';
 
   zufall() {
     return Math.random();

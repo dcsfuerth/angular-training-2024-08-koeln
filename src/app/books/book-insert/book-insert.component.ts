@@ -21,7 +21,7 @@ export class BookInsertComponent {
     private router: Router
   ) {
     this.bookForm = new FormGroup({
-      isbn: new FormControl('', [Validators.required, this.istISBN]),
+      isbn: new FormControl('', [Validators.required, this.enthaeltISBN]),
       title: new FormControl('', [Validators.required]),
       price: new FormControl(0),
       coverUrl: new FormControl(''),
@@ -43,11 +43,10 @@ export class BookInsertComponent {
     }
   }
 
-  istISBN(c: AbstractControl): { [key: string]: boolean } | null {
+  enthaeltISBN(c: AbstractControl): { [key: string]: boolean } | null {
     let wert = ('' + c.value).toLocaleLowerCase().trim();
 
     // 978-3-86680-192-9
-
     wert = wert.replaceAll('-', '');
 
     if (wert.length !== 13) {

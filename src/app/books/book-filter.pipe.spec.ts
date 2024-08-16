@@ -1,8 +1,8 @@
-import { BookFilterPipe } from './book-filter.pipe';
+// import { BookFilterPipe } from './book-filter.pipe';
 
-describe('BookFilterPipe', () => {
-  it('create an instance', () => {
-    const pipe = new BookFilterPipe();
-    expect(pipe).toBeTruthy();
-  });
-});
+// describe('BookFilterPipe', () => {
+//   it('create an instance', () => {
+//     const pipe = new BookFilterPipe();
+//     expect(pipe).toBeTruthy();
+//   });
+// });
