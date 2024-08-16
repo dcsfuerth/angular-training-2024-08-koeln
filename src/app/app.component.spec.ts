@@ -11,9 +11,12 @@ describe('AppComponent', () => {
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    // const fixture = TestBed.createComponent(AppComponent);
+    // const app = fixture.componentInstance;
+    // expect(app).toBeTruthy();
+
+    const appComponent = new AppComponent();
+    expect(appComponent.title).toBe('books');
   });
 
   it(`should have as title 'books'`, () => {

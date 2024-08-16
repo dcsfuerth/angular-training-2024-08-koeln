@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { BookDataService } from '../book-data.service';
 import { Router } from '@angular/router';
+import { istIsbn } from '../validators';
 
 @Component({
   selector: 'books-book-insert',
@@ -45,23 +46,6 @@ export class BookInsertComponent {
 
   enthaeltISBN(c: AbstractControl): { [key: string]: boolean } | null {
     let wert = ('' + c.value).toLocaleLowerCase().trim();
-
-    // 978-3-86680-192-9
-    wert = wert.replaceAll('-', '');
-
-    if (wert.length !== 13) {
-      return { isbnFalscheLaenge: true };
-    }
-
-    const isbnAlsZahl = parseInt(wert);
-    if (isNaN(isbnAlsZahl)) {
-      return { isbnFalscheZeichen: true };
-    }
-
-    if ('' + isbnAlsZahl != wert) {
-      return { isbnFalscheZeichen: true };
-    }
-
-    return null;
+    return istIsbn(wert);
   }
 }
