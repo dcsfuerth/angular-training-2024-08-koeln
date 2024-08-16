@@ -20,14 +20,14 @@ export class BookListComponent implements OnInit, OnChanges, OnDestroy {
   coverIsVisible = true;
   filterValue: string = '';
 
-  constructor(private bookDataService: BookDataService) {
+  constructor(private bookDataService: BookDataService | null) {
     console.log('constructor');
   }
 
   ngOnInit(): void {
     // const obs = this.bookDataService.getBooks();
 
-    this.bookDataService.getBooks().subscribe((books) => {
+    this.bookDataService!.getBooks().subscribe((books) => {
       this.books = books;
     });
   }
